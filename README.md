@@ -19,6 +19,7 @@ Ensure only authorized users (NEU accounts) can log entries
 Provide real-time monitoring for administrators
 Enable data filtering, searching, and exporting
 Improve security through account blocking
+
 3. 🏗️ System Architecture
 Technologies Used:
 Frontend: HTML, CSS, Bootstrap 5
@@ -28,6 +29,7 @@ Database: Supabase PostgreSQL
 Libraries:
 Bootstrap Icons
 SweetAlert2
+
 4. 👥 User Roles
 4.1 Visitor (Student / Faculty)
 Logs entry into the library
@@ -36,6 +38,7 @@ Selects:
 College
 Program / Position
 Purpose of visit
+
 4.2 Admin
 Logs in via authorized emails
 Views dashboard analytics
@@ -43,6 +46,7 @@ Filters visitor data
 Searches logs
 Exports logs to CSV
 Blocks/unblocks users
+
 5. 🔐 Authentication & Security
 Google Authentication
 Uses Supabase OAuth with Google
@@ -61,6 +65,7 @@ Admin can block users
 Blocked users cannot log entries
 System checks:
 status = 'blocked'
+
 6. 🧩 System Modules
 6.1 Visitor Module
 Features:
@@ -77,6 +82,7 @@ User selects details
 Data is saved to database
 Success message is shown
 System resets after 5 seconds
+
 6.2 Admin Dashboard
 Features:
 Secure login
@@ -85,6 +91,7 @@ Filtering system
 Search functionality
 CSV export
 Block/Unblock users
+
 7. 📊 Dashboard Features
 Statistics:
 Total Visits
@@ -98,6 +105,7 @@ Custom Date Range
 Purpose
 College
 User Type (Student / Faculty)
+
 8. 🗄️ Database Structure
 Table: visitor_logs
 Column Name	Type	Description
@@ -109,6 +117,7 @@ program	Text	Program or position
 reason	Text	Purpose of visit
 status	Text	active / blocked
 created_at	Timestamp	Date & time
+
 9. 🔍 Key Functionalities
 9.1 Insert Visitor Log
 _db.from('visitor_logs').insert([
@@ -119,21 +128,26 @@ _db.from('visitor_logs').insert([
     program,
     reason
   }
+
 ]);
 9.2 Filter Logs
 By date
 By purpose
 By college
 By type
+
 9.3 Search Logs
 Real-time search using input field
+
 9.4 Export to CSV
 Converts filtered data into downloadable file
+
 9.5 Block / Unblock User
 _db.from('visitor_logs')
   .update({ status: 'blocked' })
   .eq('id', id);
-10. 🎨 UI/UX Design
+
+  10. 🎨 UI/UX Design
 Visitor Interface:
 Centered login card
 Clean and simple form
@@ -143,17 +157,20 @@ Sidebar navigation
 Cards for statistics
 Responsive table
 Filter panel
+
 11. ⚠️ Error Handling
 Invalid email → Access denied
 Blocked user → Login prevented
 Missing fields → Validation alert
 Database errors → Console + alert
+
 12. 🚀 System Advantages
 Paperless logging
 Secure authentication
 Easy data retrieval
 Real-time monitoring
 Admin control over users
+
 13. 🔧 Possible Improvements
 Add QR code scanning
 Add analytics charts (graphs)
@@ -161,6 +178,7 @@ Role-based admin levels
 Email notifications
 Dark mode UI
 Mobile app version
+
 14. 📌 Conclusion
 
 The NEU Library Visitor Log System provides a modern, efficient, and secure way to manage visitor records. By integrating authentication, filtering, and admin controls, the system significantly improves operational efficiency and data accuracy within the library.
